@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="landscape">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,13 +21,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid_V3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstagridV3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrm-tB-rYf">
-                                <rect key="frame" x="242.5" y="0.0" width="83" height="27.5"/>
+                                <rect key="frame" x="130.33333333333334" y="44" width="114.66666666666666" height="37.666666666666657"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="9t4-tt-gLz">
-                                <rect key="frame" x="88" y="124" width="18.5" height="15"/>
+                                <rect key="frame" x="153" y="151.33333333333334" width="19" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9t4-tt-gLz" secondAttribute="height" multiplier="29:23" id="GmR-sr-Shv"/>
                                 </constraints>
@@ -51,8 +51,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkq-q1-F4T">
-                                <rect key="frame" x="35.5" y="149" width="123.5" height="22.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkq-q1-F4T">
+                                <rect key="frame" x="119.66666666666667" y="223.33333333333334" width="135.66666666666663" height="24.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -61,23 +61,23 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UP" translatesAutoresizingMaskIntoConstraints="NO" id="DNy-Dw-qBl" userLabel="up">
-                                <rect key="frame" x="152.5" y="83.5" width="15" height="10"/>
+                                <rect key="frame" x="180" y="205.66666666666666" width="15" height="10"/>
                             </imageView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI8-LR-dcZ" customClass="SelectedView" customModule="Instagrid_V3" customModuleProvider="target">
-                                <rect key="frame" x="159" y="35" width="250" height="250"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI8-LR-dcZ" customClass="SelectedView" customModule="InstagridV3" customModuleProvider="target">
+                                <rect key="frame" x="37.666666666666657" y="256" width="300" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0dd-bH-sJL">
-                                        <rect key="frame" x="10" y="10" width="230" height="230"/>
+                                        <rect key="frame" x="10" y="10" width="280" height="280"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-S4-297">
-                                                <rect key="frame" x="0.0" y="0.0" width="230" height="111"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="136"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Combined Shape" translatesAutoresizingMaskIntoConstraints="NO" id="YuS-YB-2Dp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Combined Shape" translatesAutoresizingMaskIntoConstraints="NO" id="k31-yR-efR">
-                                                        <rect key="frame" x="119" y="0.0" width="111" height="111"/>
+                                                        <rect key="frame" x="144" y="0.0" width="136" height="136"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                 </subviews>
@@ -92,14 +92,14 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JNv-tQ-VZM">
-                                                <rect key="frame" x="0.0" y="119" width="230" height="111"/>
+                                                <rect key="frame" x="0.0" y="144" width="280" height="136"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Combined Shape" translatesAutoresizingMaskIntoConstraints="NO" id="Z8p-yd-JAd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="111"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="136"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Combined Shape" translatesAutoresizingMaskIntoConstraints="NO" id="S4H-OC-KUy">
-                                                        <rect key="frame" x="120" y="0.0" width="110" height="111"/>
+                                                        <rect key="frame" x="145" y="0.0" width="135" height="136"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                 </subviews>
@@ -142,7 +142,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpZ-WL-EW5">
-                                <rect key="frame" x="213" y="288" width="142" height="30"/>
+                                <rect key="frame" x="90" y="576" width="195" height="37"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="22"/>
                                 <state key="normal" title="Change Background Color">
                                     <color key="titleColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,7 +155,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4bT-ah-07N">
-                                <rect key="frame" x="468" y="10" width="80" height="300"/>
+                                <rect key="frame" x="37.666666666666629" y="698" width="300" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkc-qZ-jRG">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -166,7 +166,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfE-eZ-M3H">
-                                        <rect key="frame" x="0.0" y="110" width="80" height="80"/>
+                                        <rect key="frame" x="110" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
@@ -174,7 +174,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmU-LB-1cY">
-                                        <rect key="frame" x="0.0" y="220" width="80" height="80"/>
+                                        <rect key="frame" x="220" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
@@ -196,10 +196,13 @@
                             <constraint firstItem="mI8-LR-dcZ" firstAttribute="top" secondItem="Wkq-q1-F4T" secondAttribute="bottom" constant="8.3333333333333428" id="KdM-GN-qin"/>
                             <constraint firstItem="Wkq-q1-F4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="101.33333333333337" id="KqB-7Z-0B7"/>
                             <constraint firstItem="0dd-bH-sJL" firstAttribute="leading" secondItem="Wkq-q1-F4T" secondAttribute="trailing" constant="29" id="NlH-aJ-VP8">
-                                <variation key="heightClass=compact" constant="10"/>
+                                <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4bT-ah-07N" secondAttribute="bottom" id="WQg-dD-kPH"/>
                             <constraint firstItem="mI8-LR-dcZ" firstAttribute="leading" secondItem="Wkq-q1-F4T" secondAttribute="trailing" id="YIb-gH-eCa"/>
+                            <constraint firstItem="Wkq-q1-F4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143.5" id="cTe-v0-tUU">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="Wkq-q1-F4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="fZn-f3-9Sd"/>
                             <constraint firstItem="wrm-tB-rYf" firstAttribute="centerX" secondItem="mI8-LR-dcZ" secondAttribute="centerX" id="g9e-a1-TQm"/>
                             <constraint firstItem="Wkq-q1-F4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82.333333333333329" id="i4l-br-9n5">
@@ -226,13 +229,14 @@
                                 <exclude reference="9t4-tt-gLz"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Dbh-Lh-veU"/>
                                 <exclude reference="vQF-0Z-WDH"/>
                                 <exclude reference="DLM-rg-vin"/>
                                 <exclude reference="KqB-7Z-0B7"/>
+                                <exclude reference="cTe-v0-tUU"/>
                                 <exclude reference="fZn-f3-9Sd"/>
                                 <exclude reference="i4l-br-9n5"/>
                                 <exclude reference="ryS-SH-Gcr"/>
+                                <exclude reference="Dbh-Lh-veU"/>
                                 <exclude reference="YIb-gH-eCa"/>
                                 <exclude reference="NlH-aJ-VP8"/>
                                 <exclude reference="Bjq-kL-PU2"/>
@@ -246,25 +250,30 @@
                                 <include reference="mI8-LR-dcZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Dbh-Lh-veU"/>
+                                <exclude reference="poE-N8-KnQ"/>
                                 <exclude reference="WQg-dD-kPH"/>
                                 <include reference="vQF-0Z-WDH"/>
                                 <exclude reference="4D7-IX-ICs"/>
                                 <include reference="DLM-rg-vin"/>
                                 <exclude reference="EEc-g5-ujP"/>
                                 <exclude reference="KqB-7Z-0B7"/>
+                                <include reference="cTe-v0-tUU"/>
                                 <exclude reference="fZn-f3-9Sd"/>
                                 <exclude reference="i4l-br-9n5"/>
                                 <include reference="ryS-SH-Gcr"/>
+                                <include reference="Dbh-Lh-veU"/>
                                 <exclude reference="KdM-GN-qin"/>
                                 <include reference="YIb-gH-eCa"/>
-                                <exclude reference="poE-N8-KnQ"/>
-                                <include reference="NlH-aJ-VP8"/>
+                                <exclude reference="NlH-aJ-VP8"/>
                                 <include reference="Bjq-kL-PU2"/>
                                 <exclude reference="il5-Eu-0Tb"/>
                                 <exclude reference="zwy-Qy-lPX"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Sc5-ti-IGR" appends="YES" id="4Wy-dx-eX5"/>
+                            <outletCollection property="gestureRecognizers" destination="Cc8-Uk-VWk" appends="YES" id="ldl-jl-C6J"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="buttonChangeColor" destination="jpZ-WL-EW5" id="NdC-0w-KD3"/>
@@ -274,14 +283,28 @@
                         <outlet property="rightTop" destination="k31-yR-efR" id="KvF-dJ-7t3"/>
                         <outlet property="selectedView" destination="mI8-LR-dcZ" id="ULE-s8-b98"/>
                         <outlet property="swipeLabel" destination="Wkq-q1-F4T" id="F3Y-8E-Ejc"/>
+                        <outlet property="swipeLeft" destination="Sc5-ti-IGR" id="1U4-TH-5Ah"/>
+                        <outlet property="swipeUp" destination="Cc8-Uk-VWk" id="XMS-Qr-uuL"/>
                         <outlet property="view1" destination="gkc-qZ-jRG" id="VUU-33-mts"/>
                         <outlet property="view2" destination="dfE-eZ-M3H" id="pls-We-vyZ"/>
                         <outlet property="view3" destination="OmU-LB-1cY" id="Vgv-Kj-uFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="Cc8-Uk-VWk" userLabel="SwipeUp">
+                    <connections>
+                        <action selector="swipeOrientation:" destination="BYZ-38-t0r" id="NC8-7H-rma"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="g0r-uy-DCr"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Sc5-ti-IGR" userLabel="Swipe Left">
+                    <connections>
+                        <action selector="swipeOrientation:" destination="BYZ-38-t0r" id="WJl-yP-3Os"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="egT-uN-bd5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="49.50738916256158"/>
+            <point key="canvasLocation" x="85.563380281690144" y="48.75"/>
         </scene>
     </scenes>
     <resources>

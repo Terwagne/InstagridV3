@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="BCQ-TF-ORW">
-                                <rect key="frame" x="99.5" y="292.5" width="176" height="82"/>
+                                <rect key="frame" x="196" y="119" width="176" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="3sk-3f-F05"/>
                                     <constraint firstAttribute="width" secondItem="BCQ-TF-ORW" secondAttribute="height" multiplier="88:41" id="oQq-d1-FUC"/>
@@ -28,24 +28,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="272.5" id="90D-Ju-b5g"/>
-                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="R5e-zR-mRg"/>
-                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99.5" id="Sct-01-itb"/>
-                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cnb-dz-KUP"/>
-                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="goh-fs-QuU"/>
+                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1H3-en-dfR"/>
+                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CKF-no-RgV"/>
+                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UKr-m1-Vbd"/>
+                            <constraint firstItem="BCQ-TF-ORW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Vp0-7l-MFV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="cnb-dz-KUP"/>
+                                <exclude reference="1H3-en-dfR"/>
+                                <exclude reference="UKr-m1-Vbd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <exclude reference="90D-Ju-b5g"/>
-                                <exclude reference="R5e-zR-mRg"/>
-                                <exclude reference="Sct-01-itb"/>
-                                <include reference="cnb-dz-KUP"/>
+                                <include reference="1H3-en-dfR"/>
+                                <include reference="UKr-m1-Vbd"/>
                             </mask>
                         </variation>
                     </view>

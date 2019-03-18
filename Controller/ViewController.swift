@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIApplicationDelegate {
     
-    // add tapGesture on the grid
+    // add tapGesture and swipeGesture on the grid
     @IBOutlet weak var selectedView: SelectedView!
+    
+    @IBOutlet var swipeUp: UISwipeGestureRecognizer!
+    
+    @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
     
     @IBOutlet weak var leftTop: UIImageView!
     
@@ -21,48 +25,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     @IBOutlet weak var rightBottom: UIImageView!
     
-    //  proprietes
-    let pickerController = UIImagePickerController()
-    var selectedImage: UIImageView?
-    var screenshot: UIImage?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        selectedView.backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
-        selectedView.style = .secondView
-        setupTapGestureRecogniser()
-        
-//     add swipeGesture
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(shareScreenShot(_:)))
-        swipe.direction = [.left, .up]
-        selectedView.isUserInteractionEnabled = true
-        selectedView.addGestureRecognizer(swipe)
-        
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
-       
-        
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func deviceOrientationDidChange() {
-        print(UIDevice.current.orientation.rawValue)
-      
-        if UIDevice.current.orientation.isLandscape {
-            swipeLabel.text = "Swipe left to Share"
-   
-        }else if UIDevice.current.orientation.isPortrait {
-            swipeLabel.text = "Swipe up to share"
-
+    // methode for swipeGesture
+    @IBAction func swipeOrientation(_ sender: UISwipeGestureRecognizer) {
+        if (UIDevice.current.orientation.isLandscape  && sender.direction == .left) || (UIDevice.current.orientation.isPortrait && sender.direction == .up) {
+            shareScreenShot()
         }
-
     }
-        
-
-    
+//   methode for tapGesture
     fileprivate func setupTapGestureRecogniser() {
         leftTop.isUserInteractionEnabled = true
         leftTop.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(insertPhoto)))
@@ -76,7 +45,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         rightBottom.isUserInteractionEnabled = true
         rightBottom.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(insertPhoto)))
     }
-  // methodes to access to photo libray
+    
+    //  proprietes
+    let pickerController = UIImagePickerController()
+    var selectedImage: UIImageView?
+    var screenshot: UIImage?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        selectedView.backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
+        selectedView.style = .secondView
+        setupTapGestureRecogniser()
+        selectedView.isUserInteractionEnabled = true
+        
+    }
+    //    change Text label for orientation
+    @IBOutlet weak var swipeLabel: UILabel!
+    override func viewWillLayoutSubviews() {
+        let orientation = UIDevice.current.orientation
+        switch orientation {
+        case .landscapeLeft:
+            swipeLabel.text = "Swipe left to share"
+        case .portrait:
+            swipeLabel.text = "Swipe up to share"
+        default :
+            break
+        }
+    }
+    // methodes to access to photo libray
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage: UIImage = (info[.originalImage] as! UIImage)
@@ -130,42 +126,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         view3.image(for: .selected)
         selectedView.style = .thirdView
     }
-//methode for orientation
     
-    
-    
-//  methode for share the photo montage
-    @objc func shareScreenShot(_ sender : UISwipeGestureRecognizer){
+    //  methode for share the photo montage
+    func shareScreenShot(){
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         screenshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         let ac = UIActivityViewController(activityItems: [screenshot!], applicationActivities: nil)
         present(ac, animated: true, completion: nil)
-        let orientation = UIDevice.current.orientation
-        switch orientation {
-        case .landscapeLeft:
-            sender.direction = .left
-            print("je suis landscape et left")
-            case .portrait:
-            sender.direction = .up
-            print("je suis portrait et up")
-         
-        default:
-           break
-        }
         if UIDevice.current.orientation.isPortrait {
             self.moveViewVertically()
-        ac.completionWithItemsHandler = { (UIActivityType: UIActivity.ActivityType?, completed: Bool, returnItems: [Any]?, error: Error?) in
-            if !completed {
-                self.moveViewToCenter()
-            }
-            if completed {
-                self.moveViewToCenter()
-            }
-        }
-        }else{
-            self.moveViewHorizontally()
             ac.completionWithItemsHandler = { (UIActivityType: UIActivity.ActivityType?, completed: Bool, returnItems: [Any]?, error: Error?) in
                 if !completed {
                     self.moveViewToCenter()
@@ -173,12 +144,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 if completed {
                     self.moveViewToCenter()
                 }
-            }        }
-UIDevice.current.endGeneratingDeviceOrientationNotifications()
-             }
+            }
+        }else if UIDevice.current.orientation.isLandscape {
+            self.moveViewHorizontally()
+            
+            ac.completionWithItemsHandler = { (UIActivityType: UIActivity.ActivityType?, completed: Bool, returnItems: [Any]?, error: Error?) in
+                if !completed {
+                    self.moveViewToCenter()
+                }
+                if completed {
+                    self.moveViewToCenter()
+                }
+            }
+        }
+    }
     
-    
-// méthode to move the grid when sharing - animated View
+    // methode to move the grid when sharing - animated View
     func moveViewVertically () {
         let screenHeight = UIScreen.main.bounds.height
         UIView.animate(withDuration: 1, animations: {
@@ -186,23 +167,18 @@ UIDevice.current.endGeneratingDeviceOrientationNotifications()
         }, completion: nil)
     }
     
-   
     func moveViewHorizontally() {
         let screenLeft = UIScreen.main.bounds.width
         UIView.animate(withDuration: 1, animations: {
             self.selectedView.transform = CGAffineTransform(translationX: -screenLeft, y: 0)
         }, completion: nil)
-        
     }
-
+    
     func moveViewToCenter () {
-    UIView.animate(withDuration: 0.5, animations: {
-    self.selectedView.transform = CGAffineTransform.identity
-    }, completion: nil)
-}
-    
-    
-    
+        UIView.animate(withDuration: 0.5, animations: {
+            self.selectedView.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
     
     // Bonus : Change the color of the backgroung
     @IBOutlet weak var buttonChangeColor: UIButton!
@@ -213,19 +189,11 @@ UIDevice.current.endGeneratingDeviceOrientationNotifications()
         case 1:
             selectedView.backgroundColor? = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         case 2:
-          selectedView.backgroundColor? = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            selectedView.backgroundColor? = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         case 3:
-             selectedView.backgroundColor? = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            selectedView.backgroundColor? = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         default:
-             selectedView.backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
-            
-}
-
-}
-    
-//    change Text label for Swipe
-  
-    @IBOutlet weak var swipeLabel: UILabel!
-    
-
+            selectedView.backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
+        }
+    }
 }
