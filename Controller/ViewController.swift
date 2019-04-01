@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIApplicationDelegate {
     
-    // add tapGesture and swipeGesture on the grid
+    //MARK add tapGesture and swipeGesture on the grid
     @IBOutlet weak var selectedView: SelectedView!
     
     @IBOutlet var swipeUp: UISwipeGestureRecognizer!
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         rightBottom.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(insertPhoto)))
     }
     
-    //  proprietes
+    // MARK  properties
     let pickerController = UIImagePickerController()
     var selectedImage: UIImageView?
     var screenshot: UIImage?
@@ -59,7 +59,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         selectedView.isUserInteractionEnabled = true
         
     }
-    //    change Text label for orientation
+    // MARK  Methode to  change Text label according to orientation
     @IBOutlet weak var swipeLabel: UILabel!
     override func viewWillLayoutSubviews() {
         let orientation = UIDevice.current.orientation
@@ -72,7 +72,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             break
         }
     }
-    // methodes to access to photo libray
+    // MARK methodes to access to photo libray
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage: UIImage = (info[.originalImage] as! UIImage)
@@ -95,7 +95,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    // present the selected Grid
+    // MARK: present the selected Grid
     
     @IBOutlet weak var view1: UIButton!
     
@@ -127,7 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         selectedView.style = .thirdView
     }
     
-    //  methode for share the photo montage
+    // MARK: methode for share the photo montage and manage animation
     func shareScreenShot(){
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -159,7 +159,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         }
     }
     
-    // methode to move the grid when sharing - animated View
+    //MARK:  methodes to move the grid when sharing - animated View
     func moveViewVertically () {
         let screenHeight = UIScreen.main.bounds.height
         UIView.animate(withDuration: 1, animations: {
